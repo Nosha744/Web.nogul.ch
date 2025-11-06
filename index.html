@@ -1,0 +1,120 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Testseite</title>
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+    <header>
+        <h1>Testseite</h1>
+    </header>
+
+    <main>
+        <section class="card">
+            <h2>Slider</h2>
+            <input type="range" min="0" max="100" value="50" class="slider" />
+        </section>
+
+        <section class="card">
+            <h2>Buttons</h2>
+            <button class="btn">Klick mich</button>
+            <button class="btn secondary">Zweiter Button</button>
+        </section>
+
+        <section class="card">
+            <h2>Toggle</h2>
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider-toggle"></span>
+            </label>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
+<!-- style.css -->
+/* Spotify Dark Style */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #121212;
+    color: white;
+}
+header {
+    padding: 20px;
+    background: #000;
+    text-align: center;
+}
+.card {
+    background: #181818;
+    padding: 20px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+.btn {
+    background: #1db954;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 30px;
+    color: #000;
+    cursor: pointer;
+    font-size: 16px;
+    margin-right: 10px;
+}
+.btn.secondary {
+    background: #404040;
+    color: #fff;
+}
+.btn:hover {
+    opacity: 0.85;
+}
+.slider {
+    width: 100%;
+}
+/* Toggle Switch */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+.switch input {display:none;}
+.slider-toggle {
+  position: absolute;
+  cursor: pointer;
+  top: 0; left: 0;
+  right: 0; bottom: 0;
+  background-color: #555;
+  transition: .4s;
+  border-radius: 34px;
+}
+.slider-toggle:before {
+  position: absolute;
+  content: "";
+  height: 26px; width: 26px;
+  left: 4px; bottom: 4px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+input:checked + .slider-toggle {
+  background-color: #1db954;
+}
+input:checked + .slider-toggle:before {
+  transform: translateX(26px);
+}
+
+
+<!-- script.js -->
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelector(".btn").addEventListener("click", () => {
+        alert("Button funktioniert!");
+    });
+});
